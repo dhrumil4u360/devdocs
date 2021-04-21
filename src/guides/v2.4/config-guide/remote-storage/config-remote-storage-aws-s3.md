@@ -36,7 +36,7 @@ location ~* \.(ico|jpg|jpeg|png|gif|svg|js|css|swf|eot|ttf|otf|woff|woff2)$ {
     # Proxying to AWS S3 storage.
     resolver 8.8.8.8;
     set $bucket "<s3-bucket-name>";
-    proxy_pass https://s3.amazonaws.com/$bucket$uri;
+    proxy_pass https://$bucket.s3.amazonaws.com$uri;
     proxy_pass_request_body off;
     proxy_pass_request_headers off;
     proxy_intercept_errors on;
